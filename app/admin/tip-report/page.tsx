@@ -14,9 +14,9 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 
-const Page: React.FC = () => {
+const page: React.FC = () => {
     const router = useRouter();
-    const [isTipReport, setIsTipReport] = useState<any[]>([]); // Corrected type
+    const [isTipReport, setIsTipReport] = useState<any[]>([]); 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -217,4 +217,4 @@ const Page: React.FC = () => {
     );
 };
 
-export default Page;
+export default page;
