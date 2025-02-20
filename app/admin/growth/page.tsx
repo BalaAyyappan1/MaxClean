@@ -9,7 +9,8 @@ import MonthReport from "@/components/Growth/MonthReport";
 import QuaterReport from "@/components/Growth/QuaterReport";
 import YearReport from "@/components/Growth/YearReport";
 
-const Page: React.FC = () => {
+
+const page = () => {
   const router = useRouter();
 
   const handleSignout = async () => {
@@ -91,4 +92,4 @@ const Page: React.FC = () => {
   );
 };
 
-export default Page;
+export default page;
