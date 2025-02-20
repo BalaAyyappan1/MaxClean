@@ -23,7 +23,7 @@ const ScrollingText = () => {
 
   return (
     <div className="flex justify-center items-center h-screen bg-black">
-      <div className="text-[110px] font-bold tracking-wider flex items-center">
+      <div className="text-[50px] sm:text-[50px] md:text-[100px] lg:text-[110px]  font-bold tracking-wider flex items-center">
         {/* "MAX" in red - This will remain static */}
         <span className="text-white">MAX&nbsp;</span>
 
