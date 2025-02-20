@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 
 const page: React.FC = () => {
     const router = useRouter();
-    const [isTipReport, setIsTipReport] = useState<any[]>([]); 
+    const [isTipReport, setIsTipReport] = useState<any[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -63,11 +63,11 @@ const page: React.FC = () => {
             alert("No data to download.");
             return;
         }
-    
+
         // Define CSV headers
         let csvContent = "data:text/csv;charset=utf-8,";
         csvContent += "Order Id,Name,Email,Phone Number,Tips,Date\n"; // Header row
-    
+
         // Add data rows
         isTipReport.forEach(order => {
             const row = [
@@ -80,10 +80,10 @@ const page: React.FC = () => {
                 `₹${order.tips}`,
                 new Date(order.createdAt).toLocaleDateString("en-GB"), // Format as DD/MM/YYYY
             ].join(",");
-    
+
             csvContent += row + "\n";
         });
-    
+
         // Create a link to trigger the download
         const encodedUri = encodeURI(csvContent);
         const link = document.createElement("a");
@@ -93,7 +93,7 @@ const page: React.FC = () => {
         link.click();
         document.body.removeChild(link);
     };
-    
+
 
     // Fetch tip reports when the page loads
     useEffect(() => {
@@ -150,7 +150,7 @@ const page: React.FC = () => {
                     <Table className="shadow-xl">
                         <TableHeader className="rounded-md text-[20px] bg-[#EEEBEC] px-4 !py-10 !text-black">
                             <TableRow className="rounded-lg">
-                            <TableHead>Order Id</TableHead>
+                                <TableHead>Order Id</TableHead>
 
                                 <TableHead>Name</TableHead>
                                 <TableHead>Email</TableHead>
@@ -185,7 +185,7 @@ const page: React.FC = () => {
                                         <TableCell>{order.email}</TableCell>
                                         <TableCell>{order.phoneNumber}</TableCell>
                                         <TableCell>₹{order.tips}</TableCell>
-                                        
+
                                         <TableCell>{order.paymentStatus}</TableCell>
                                         <TableCell>{order.status}</TableCell>
 
@@ -194,7 +194,7 @@ const page: React.FC = () => {
                                         <TableCell>
                                             {new Date(order.createdAt).toLocaleDateString("en-GB")} {/* for DD/MM/YYYY format */}
                                         </TableCell>
-                    
+
 
                                     </TableRow>
                                 ))
@@ -208,8 +208,8 @@ const page: React.FC = () => {
                         </TableBody>
                     </Table>
                     <Button onClick={downloadCSV} className="text-white text-xl mt-2 bg-black whitespace-nowrap rounded-[8px] py-3">
-    Download Report
-</Button>
+                        Download Report
+                    </Button>
 
                 </main>
             </div>

@@ -274,6 +274,7 @@ const Steps = () => {
             </div>
           </div>
           <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={three.src} alt="Schedule a Wash" className="rounded-lg" />
           </div>
         </div>
