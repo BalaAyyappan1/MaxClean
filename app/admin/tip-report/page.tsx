@@ -1,5 +1,4 @@
 "use client";
-
 import { LogOut } from "lucide-react";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
@@ -14,7 +13,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 
-const page = () => {
+const Page = () => {
     const router = useRouter();
     const [isTipReport, setIsTipReport] = useState<any[]>([]);
     const [loading, setLoading] = useState(false);
@@ -217,4 +216,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;
