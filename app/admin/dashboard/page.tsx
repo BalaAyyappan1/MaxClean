@@ -1072,18 +1072,17 @@ export default function Dashboard() {
         )}
 
         {/* Dashboard Content */}
-        <main className="p-6 shadow-2xl space-y-6">
-          <button
-            onClick={toggleVisibility}
-            className="p-1 rounded-full hover:bg-gray-100 transition-colors text-end"
-            aria-label={isVisible ? "Hide revenue" : "Show revenue"}
-          >
-            {isVisible ? (
-              <EyeOff className="w-5 h-5" /> // Eye-off icon when revenue is visible
-            ) : (
-              <Eye className="w-5 h-5" /> // Eye icon when revenue is hidden
-            )}
-          </button>
+        <main className="p-6 shadow-2xl space-y-6"> 
+          <div className="w-full justify-end text-end">
+          <Button
+      onClick={toggleVisibility}
+      className="px-3 py-1 rounded-full hover:bg-gray-900 transition-colors justify-end bg-black text-white"
+      aria-label={isVisible ? "Hide revenue" : "Show revenue"}
+    >
+      {isVisible ? "Hide" : "Show"}
+    </Button>
+          </div>
+  
           <ToastContainer
             position="top-center"
             autoClose={5000}

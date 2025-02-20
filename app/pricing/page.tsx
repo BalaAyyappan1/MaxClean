@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/NavBar";
 
 const Pricing = () => {
-
   // useEffect(() => {
   //   fetch("/api/test-api", {
   //     method: 'POST'
@@ -113,7 +112,7 @@ const PricingCard = () => {
   ];
 
   return (
-    <div className="w-full relative flex flex-wrap z-[100] -mt-[600px] md:-mt-50 px-10 md:px-0 justify-center gap-8 py-16">
+    <div className="w-full relative flex flex-wrap z-[100] -mt-[470px] md:-mt-50 px-10 md:px-0 justify-center gap-8 py-16">
       {plans.map((plan, index) => (
         <div
           key={index}
@@ -217,7 +216,7 @@ const PricingCard2 = () => {
   ];
 
   return (
-    <div className="w-full flex flex-wrap z-[100] -mt-[600px] md:-mt-50 px-10 md:px-0 justify-center gap-8 py-16">
+    <div className="w-full flex flex-wrap z-[100] -mt-[470px] md:-mt-50 px-10 md:px-0 justify-center gap-8 py-16">
       {plans.map((plan, index) => (
         <div
           key={index}
