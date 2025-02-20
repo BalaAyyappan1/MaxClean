@@ -1974,7 +1974,3 @@ export default function Dashboard() {
     </div>
   );
 }
-
-export function tipReport() {
-  return <div>heelo</div>;
-}
