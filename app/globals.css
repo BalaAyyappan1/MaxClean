@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@keyframes marquee {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 10s linear infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Smooth scrolling */
+.scrollbar-hide {
+  scroll-behavior: smooth;
+}
+
+
+@font-face{
+  font-family: 'insta';
+  src: url('../assets/inst.ttf') format('truetype');
+}
+
+@font-face{
+  font-family: 'helvetica';
+  src: url('../assets/Helvetica.ttf') format('truetype');
+}
+
+@font-face{
+  font-family: 'amazon';
+  src: url('../assets/AmazonEmber_Rg.ttf') format('truetype');
+}
+
+.insta{
+  font-family: 'insta';
+}
+.amazon{
+  font-family: 'amazon';
+}
+
+body{
+  font-family: 'amazon';
+}
+
+
+
+.helvetica{
+  font-family: 'Helvetica';
+}
+
+ 
+body {
+  color: var(--foreground);
+  background: var(--background); 
+}
+
+canvas {
+  max-width: 500px; /* Match the size of the uploaded chart */
+  margin: 0 auto;
+}
+
+.chart-container {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
