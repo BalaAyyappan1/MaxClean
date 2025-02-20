@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 
-const page: React.FC = () => {
+const page = () => {
     const router = useRouter();
     const [isTipReport, setIsTipReport] = useState<any[]>([]);
     const [loading, setLoading] = useState(false);
