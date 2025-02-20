@@ -10,7 +10,9 @@ import QuaterReport from "@/components/Growth/QuaterReport";
 import YearReport from "@/components/Growth/YearReport";
 
 
-const page = () => {
+
+
+const PageGrowth: React.FC = () => {
   const router = useRouter();
 
   const handleSignout = async () => {
@@ -18,7 +20,7 @@ const page = () => {
       // Clear tokens from cookies (via API)
       await fetch("/api/auth/signout", { method: "POST" });
 
-      // Redirect to the login page
+      // Redirect to the login pageGrowth
       router.push("/signin");
     } catch (err) {
       console.error("Error logging out:", err);
@@ -92,4 +94,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default PageGrowth;
