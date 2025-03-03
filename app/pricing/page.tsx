@@ -112,7 +112,7 @@ const PricingCard = () => {
   ];
 
   return (
-    <div className="w-full relative flex flex-wrap z-[100] -mt-[470px] md:-mt-50 px-10 md:px-0 justify-center gap-8 py-16">
+    <div className="w-full relative flex flex-wrap z-[100]  -mt-[470px] md:-mt-50 px-10 md:px-0 justify-center gap-8 py-16">
       {plans.map((plan, index) => (
         <div
           key={index}
@@ -216,7 +216,7 @@ const PricingCard2 = () => {
   ];
 
   return (
-    <div className="w-full flex flex-wrap z-[100] -mt-[470px] md:-mt-50 px-10 md:px-0 justify-center gap-8 py-16">
+    <div className="w-full flex flex-wrap z-[100] -mt-[430px] sm:-mt-[400px] md:-mt-[460px] lg:-mt-[460px] px-10 md:px-0 justify-center gap-8 py-16">
       {plans.map((plan, index) => (
         <div
           key={index}
