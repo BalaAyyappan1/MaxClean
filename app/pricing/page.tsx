@@ -6,6 +6,7 @@ import Link from "next/link";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/NavBar";
+import PricingCard from "@/components/Pricing/PricingCard";
 
 const Pricing = () => {
   // useEffect(() => {
@@ -21,13 +22,14 @@ const Pricing = () => {
 
   return (
     <div className="w-full overflow-hidden flex flex-col items-center justify-center">
-      <Navbar />
-      <MobileNav />
-      <Hero isYearly={isYearly} setIsYearly={setIsYearly} />
-      {isYearly ? <PricingCard /> : <PricingCard2 />}
-      {/* <Faq /> */}
+      {/* <Navbar />
+      <MobileNav /> */}
+<PricingCard />
+      {/* <Hero isYearly={isYearly} setIsYearly={setIsYearly} />
+      {isYearly ? <Card1 /> : <Card2 />}
+      {/* <Faq />
       <GetDemo />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };
@@ -44,19 +46,19 @@ const Hero: React.FC<HeroProps> = ({ isYearly, setIsYearly }) => {
       className="relative h-screen w-full bg-cover flex items-center px-10 bg-center text-white"
       style={{ backgroundImage: `url(${Banner.src})` }}
     >
-      <div className="flex flex-col w-full absolute gap-10 md:-mt-20 items-center justify-center top-1/6 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div className="flex flex-col w-full  gap-10  items-center justify-center -mt-[300px]">
         <div className="flex flex-col items-center justify-center gap-6">
-          <h1 className="font-medium md:text-[65px] text-4xl md:leading-[74px] text-center">
+          <h1 className="font-medium md:text-[65px] text-2xl md:leading-[74px] text-center">
             Pricing plans <br className="hidden md:block" />
             for a spotless ride
           </h1>
-          <h2 className="text-center text-xl text-white/80">
+          <h2 className="text-center md:text-xl text-[18px] text-white/80">
             Keep your car and bike spotless and shining with our premium wash
             services. <br />
             We offer flexible plans to suit every need and budget.
           </h2>
         </div>
-        <div className="text-[16px] md:z-[150] z-[400] font-semibold flex gap-4 items-center justify-center">
+        <div className="md:text-[16px] text-[14px] md:z-[150] z-[400] font-semibold flex gap-4 items-center justify-center">
           <h1>Pay Once</h1>
           <label className="inline-flex items-center cursor-pointer">
             <input
@@ -66,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({ isYearly, setIsYearly }) => {
               checked={isYearly}
               onChange={() => setIsYearly((prev) => !prev)}
             />
-            <div className="relative w-12 h-7 bg-[#D70006] rounded-full peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-600/0 peer dark:bg-[#D70006] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-red-600 after:content-[''] after:absolute after:top-[4px] after:start-[4px] after:bg-gray-200 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-white peer-checked:bg-[#D70006]"></div>
+<div className="relative md:w-12 md:h-7 w-9 h-5 bg-[#D70006] rounded-full peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-600/0 peer dark:bg-[#D70006] peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-red-600 after:content-[''] after:absolute after:top-[4px] after:start-[4px] after:bg-gray-200 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-white peer-checked:bg-[#D70006]"></div>
           </label>
           <h1>Pay Monthly</h1>
         </div>
@@ -75,7 +77,7 @@ const Hero: React.FC<HeroProps> = ({ isYearly, setIsYearly }) => {
   );
 };
 
-const PricingCard = () => {
+const Card2 = () => {
   const plans = [
     {
       title: "Bi-weekly",
@@ -112,7 +114,7 @@ const PricingCard = () => {
   ];
 
   return (
-    <div className="w-full relative flex flex-wrap z-[100]  -mt-[470px] md:-mt-50 px-10 md:px-0 justify-center gap-8 py-16">
+    <div className="w-full relative flex flex-wrap z-[100] -mt-[450px]    px-10 md:px-0 justify-center gap-8 py-16">
       {plans.map((plan, index) => (
         <div
           key={index}
@@ -156,31 +158,9 @@ const PricingCard = () => {
   );
 };
 
-const GetDemo = () => {
-  return (
-    <div className="relative w-[95%] md:w-[90%] rounded-xl py-16 my-20 md:my-40 bg-[#D70006]  text-white flex items-center justify-center">
-      <div className="absolute inset-0 flex justify-center items-center">
-        <div className="absolute md:w-[60%] w-[80%] md:h-screen h-[120%] border-4 border-white/30 rounded-full"></div>
-        <div className="absolute md:w-[80%] w-[100%] md:h-screen h-[140%] border-4 border-white/20 rounded-full"></div>
-      </div>
-      <div className="relative text-center">
-        <h2 className="text-4xl font-bold mb-4">Schedule a Wash</h2>
-        <p className="text-xl text-white/80 mb-6">
-          Book a wash now and see the magic for yourself! Get the #MAXPERIENCE!
-        </p>
-        <Link
-          href="/schedule"
-          className="px-6 py-3 z-10 bg-white text-[#D70006] rounded-lg font-semibold hover:bg-gray-100 transition"
-        >
-          Book Order
-        </Link>
-      </div>
-    </div>
-  );
-};
 
-const PricingCard2 = () => {
-  const plans = [
+const Card1 = () => {
+  const plans1 = [
     {
       title: "Car Foam Wash",
       price: "₹679",
@@ -216,8 +196,8 @@ const PricingCard2 = () => {
   ];
 
   return (
-    <div className="w-full flex flex-wrap z-[100] -mt-[430px] sm:-mt-[400px] md:-mt-[460px] lg:-mt-[460px] px-10 md:px-0 justify-center gap-8 py-16">
-      {plans.map((plan, index) => (
+    <div className="w-full flex flex-wrap z-[100] md:-mt-[450px] -mt-[400px]  px-10 md:px-0 justify-center gap-8 py-16">
+      {plans1.map((plan, index) => (
         <div
           key={index}
           className="max-w-lg w-full relative bg-white text-black shadow-md rounded-lg border-[0.5px] border-[#D70006]/50 pb-10"
@@ -256,6 +236,28 @@ const PricingCard2 = () => {
           </div>
         </div>
       ))}
+    </div>
+  );
+};
+const GetDemo = () => {
+  return (
+    <div className="relative w-[95%] md:w-[90%] rounded-xl py-16 my-20 md:my-40 bg-[#D70006]  text-white flex items-center justify-center">
+      <div className="absolute inset-0 flex justify-center items-center">
+        <div className="absolute md:w-[60%] w-[80%] md:h-screen h-[120%] border-4 border-white/30 rounded-full"></div>
+        <div className="absolute md:w-[80%] w-[100%] md:h-screen h-[140%] border-4 border-white/20 rounded-full"></div>
+      </div>
+      <div className="relative text-center">
+        <h2 className="text-4xl font-bold mb-4">Schedule a Wash</h2>
+        <p className="text-xl text-white/80 mb-6">
+          Book a wash now and see the magic for yourself! Get the #MAXPERIENCE!
+        </p>
+        <Link
+          href="/schedule"
+          className="px-6 py-3 z-10 bg-white text-[#D70006] rounded-lg font-semibold hover:bg-gray-100 transition"
+        >
+          Book Order
+        </Link>
+      </div>
     </div>
   );
 };

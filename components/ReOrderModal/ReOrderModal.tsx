@@ -69,7 +69,7 @@ const ReOrderModal: React.FC = () => {
       <div className="bg-white p-2 rounded-lg shadow-lg">
         {orders.map((order, index) => (
           <div key={index} className="flex justify-between">
-            <div className="flex flex-col p-4 rounded-md w-[350px]">
+            <div className="flex flex-col p-4 rounded-md md:w-[350px]">
               <div className="flex items-center gap-2">
                 <p>{order.carType}</p>
                 <span>-</span>

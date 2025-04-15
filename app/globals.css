@@ -89,3 +89,20 @@ canvas {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+
+
+@media (min-width: 768px) and (max-width: 923px) {
+  .custom-md-range {
+    /* Example: adjust the translate or padding */
+    transform: translateY(85%) !important;
+    padding-bottom: 10rem !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 923px) {
+  .custom-margintop {
+    /* Example: adjust the translate or padding */
+   margin-top:1250px !important;
+  }
+}

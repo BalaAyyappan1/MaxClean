@@ -1195,7 +1195,7 @@ export default function Dashboard() {
               <CardContent>
                 <div className="text-2xl   font-bold">
                   {isVisible ? (
-                    `₹${metrics.totalOrders}`
+                    `${metrics.totalOrders}`
                   ) : (
                     <span className="blur-sm">XXXX</span> // Blurred placeholder
                   )}
@@ -1245,7 +1245,7 @@ export default function Dashboard() {
               <CardContent>
                 <div className="text-2xl   font-bold">
                   {isVisible ? (
-                    `₹${metrics.ordersCompleted}`
+                    `${metrics.ordersCompleted}`
                   ) : (
                     <span className="blur-sm">XXXX</span> // Blurred placeholder
                   )}
