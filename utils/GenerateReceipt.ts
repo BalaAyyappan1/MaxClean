@@ -8,6 +8,8 @@ interface Order {
   phoneNumber: string;
   service: string;
   price: number;
+  addOn: { title: string; price: number }[],
+  tips: number,
   address: string;
   landmark: string;
   pincode: string;
@@ -96,10 +98,22 @@ export async function generateReceiptPDF(order: Order): Promise<Buffer> {
     [order.service, order.price]
   ];
 
+  // Add add-ons to the table data
+  if (order.addOn && order.addOn.length > 0) {
+    order.addOn.forEach(addon => {
+      tableData.push([addon.title, addon.price]);
+    });
+  }
+
+  // Add tips if present
+  if (order.tips && order.tips > 0) {
+    tableData.push(['Tips', order.tips]);
+  }
+
   (doc as any).autoTable({
     startY: 150,
     head: [tableData[0]],
-    body: [tableData[1]],
+    body: tableData.slice(1),
     theme: 'grid',
     headStyles: { fillColor: [240, 240, 240], textColor: [0, 0, 0] },
     styles: { fontSize: 10, cellPadding: 5 },
@@ -110,9 +124,11 @@ export async function generateReceiptPDF(order: Order): Promise<Buffer> {
   });
 
   // Calculate final amounts
-  const subtotal = order.price;
+  const addOnTotal = order.addOn ? order.addOn.reduce((sum, addon) => sum + addon.price, 0) : 0;
+  const tipsAmount = order.tips || 0;
+  const subtotal = order.price + addOnTotal + tipsAmount;
   const tax = 0;
-  const total = subtotal ;
+  const total = subtotal;
 
   // Add summary section with proper formatting
   const summaryStartY = (doc as any).autoTable.previous.finalY + 20;

@@ -16,7 +16,9 @@ const razorpay = new Razorpay({
 
 export async function POST(req: Request) {
   try {
+    console.log("Connecting to DB...");
     await connectDB();
+    console.log("Connected to DB");
     const { orderId } = await req.json();
 
     // Validate the orderId
@@ -38,14 +40,15 @@ export async function POST(req: Request) {
     }
 
     // Retrieve service and timeSlot from the fetched order
-    const { price, addOn, tips , service, timeSlot } = order; // added nrml price 
+    const { price, addOn, tips, service, timeSlot } = order; // added nrml price
     console.log("Initiating payment for:", price);
     console.log("Add-ons:", addOn, "Tips:", tips);
 
     // Calculate total price
-    const addOnTotalPrice = Array.isArray(addOn) ? addOn.reduce((total, addon) => total + addon.price, 0) : 0;
+    const addOnTotalPrice = Array.isArray(addOn)
+      ? addOn.reduce((total, addon) => total + addon.price, 0)
+      : 0;
     const totalAmount = price + addOnTotalPrice + tips;
-
 
     // const servicePrices: Record<string, number> = {
     //   "Car foam wash": 679,
@@ -75,8 +78,8 @@ export async function POST(req: Request) {
       },
     });
 
-    order.razorpayOrderId = razorpayOrder.id;  // Assuming `razorpayOrderId` is a field in the Order model
-    await order.save(); 
+    order.razorpayOrderId = razorpayOrder.id; // Assuming `razorpayOrderId` is a field in the Order model
+    await order.save();
 
     if (!razorpayOrder || !razorpayOrder.id) {
       return NextResponse.json(
@@ -96,6 +99,10 @@ export async function POST(req: Request) {
     );
   } catch (error) {
     console.error("Payment order creation error:", error);
+    if (error instanceof Error) {
+      console.log(error.message);
+      console.log(error.stack);
+    }
     return NextResponse.json(
       {
         message: "Internal server error.",

@@ -153,7 +153,7 @@ const Video: React.FC<VideoProps> = ({ posterSrc }) => {
         disableRemotePlayback
       >
         <source
-          src="https://ik.imagekit.io/7da6fpjdo/Maxclean.webm/ik-video.mp4?updatedAt=1733564402262"
+          src="https://ik.imagekit.io/99y1fc9mh/MaxClean/Maxclean.mp4?updatedAt=1754121546969"
           type="video/mp4"
         />
         Your browser does not support the video tag.

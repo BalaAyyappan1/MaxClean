@@ -1,28 +1,28 @@
 import nodemailer from "nodemailer";
 
 export const sendAcceptMail = async (
-    name: string,
-    email: string,
-    service: string,
-    price: number,
-    date: string,
-    timeSlot: string,
-    razorpayOrderId: string | undefined,
-    receipt: Buffer
-  ) => {
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.NODE_MAILER_ID,
-        pass: process.env.NODE_MAILER_SECRET, // Use environment variables for production
-      },
-    });
-  
-    const mailOptions = {
-      from: process.env.NODE_MAILER_ID, // Sender email
-      to: email, // Recipient email
-      subject: "Order Accepted - Please Wait for the Washer",
-      html: `<!DOCTYPE html>
+  name: string,
+  email: string,
+  service: string,
+  price: number,
+  date: string,
+  timeSlot: string,
+  razorpayOrderId: string | undefined,
+  receipt: Buffer
+) => {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.NODE_MAILER_ID,
+      pass: process.env.NODE_MAILER_SECRET, // Use environment variables for production
+    },
+  });
+
+  const mailOptions = {
+    from: process.env.NODE_MAILER_ID, // Sender email
+    to: email, // Recipient email
+    subject: "Order Accepted - Please Wait for the Washer",
+    html: `<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -139,22 +139,20 @@ export const sendAcceptMail = async (
   </body>
   </html>
   `,
-  attachments: [
-    {
-      filename: "receipt.pdf", // Name of the attached file
-      content: receipt, // Buffer content of the PDF
-      contentType: "application/pdf",
-    },
-  ],
-
-};
-  
-    try {
-      // Send the email
-      await transporter.sendMail(mailOptions);
-      console.log("Order acceptance email sent successfully.");
-    } catch (error) {
-      console.error("Error sending order acceptance email:", error);
-    }
+    attachments: [
+      {
+        filename: "receipt.pdf", // Name of the attached file
+        content: receipt, // Buffer content of the PDF
+        contentType: "application/pdf",
+      },
+    ],
   };
-  
+
+  try {
+    // Send the email
+    await transporter.sendMail(mailOptions);
+    console.log("Order acceptance email sent successfully.");
+  } catch (error) {
+    console.error("Error sending order acceptance email:", error);
+  }
+};
