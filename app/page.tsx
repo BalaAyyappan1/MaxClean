@@ -230,7 +230,7 @@ const Steps = () => {
           </div>
         </div>
 
-        {/* Step 2 */}
+        {/* Step  */}
         {/* <div
           className={`bg-[#D70006]  hover:scale-105 cursor-pointer text-white rounded-[30px] overflow-hidden flex flex-col justify-between shadow-lg text-center transition-all duration-700 delay-150 ${sectionInView
             ? "opacity-100 translate-y-0"
